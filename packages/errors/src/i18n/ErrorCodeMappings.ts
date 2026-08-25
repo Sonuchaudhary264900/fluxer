@@ -339,6 +339,7 @@ export const ErrorCodeToI18nKey = {
 	[APIErrorCodes.UNKNOWN_FAVORITE_MEME]: 'media_and_memes.unknown_favorite_meme',
 	[APIErrorCodes.UNKNOWN_GIFT_CODE]: 'invites_and_gifts.unknown_gift_code',
 	[APIErrorCodes.UNKNOWN_GUILD]: 'unknown_entities.unknown_guild',
+	[APIErrorCodes.UNKNOWN_GUILD_SCHEDULED_EVENT]: 'unknown_entities.unknown_guild_scheduled_event',
 	[APIErrorCodes.UNKNOWN_HARVEST]: 'harvest.unknown',
 	[APIErrorCodes.UNKNOWN_INVITE]: 'unknown_entities.unknown_invite',
 	[APIErrorCodes.UNKNOWN_MEMBER]: 'unknown_entities.unknown_member',
@@ -617,4 +618,12 @@ export const ErrorCodeToI18nKey = {
 	[ValidationErrorCodes.ENTRANCE_SOUND_NAME_LENGTH_INVALID]: 'entrance_sounds.name_length_invalid',
 	[ValidationErrorCodes.ENTRANCE_SOUND_NOT_FOUND]: 'entrance_sounds.not_found',
 	[ValidationErrorCodes.ENTRANCE_SOUND_INVALID_SCOPE]: 'entrance_sounds.invalid_scope',
+	[ValidationErrorCodes.EVENT_CHANNEL_MUST_BE_VOICE]: 'events.channel_must_be_voice',
+	[ValidationErrorCodes.EVENT_CHANNEL_ID_REQUIRED_FOR_VOICE_EVENTS]: 'events.channel_id_required_for_voice_events',
+	[ValidationErrorCodes.EVENT_EXTERNAL_LOCATION_REQUIRED_FOR_EXTERNAL_EVENTS]:
+		'events.external_location_required_for_external_events',
+	[ValidationErrorCodes.EVENT_END_TIME_MUST_BE_AFTER_START_TIME]: 'events.end_time_must_be_after_start_time',
+	[ValidationErrorCodes.EVENT_END_TIME_REQUIRED_FOR_EXTERNAL_EVENTS]: 'events.end_time_required_for_external_events',
+	[ValidationErrorCodes.EVENT_START_TIME_MUST_BE_IN_FUTURE]: 'events.start_time_must_be_in_future',
+	[ValidationErrorCodes.EVENT_ALREADY_COMPLETED_OR_CANCELED]: 'events.already_completed_or_canceled',
 } as const satisfies Record<AllErrorCodes, ErrorI18nKey>;

@@ -593,6 +593,7 @@ export const ERROR_I18N_MESSAGES = {
 	'unknown_entities.unknown_application': "Application wasn't found.",
 	'unknown_entities.unknown_channel': "Channel wasn't found.",
 	'unknown_entities.unknown_guild': "Community wasn't found.",
+	'unknown_entities.unknown_guild_scheduled_event': "Event wasn't found.",
 	'unknown_entities.unknown_invite': "Invite wasn't found or is no longer valid.",
 	'unknown_entities.unknown_member': "Member wasn't found in this community.",
 	'unknown_entities.unknown_message': "Message wasn't found.",
@@ -646,6 +647,13 @@ export const ERROR_I18N_MESSAGES = {
 	'entrance_sounds.name_length_invalid': 'Entrance sound names must be between 1 and {max, number} characters.',
 	'entrance_sounds.not_found': 'Entrance sound not found.',
 	'entrance_sounds.invalid_scope': 'Invalid entrance sound scope.',
+	'events.channel_must_be_voice': 'The channel for a voice event must be a voice channel.',
+	'events.channel_id_required_for_voice_events': 'A channel is required for voice events.',
+	'events.external_location_required_for_external_events': 'A location is required for external events.',
+	'events.end_time_must_be_after_start_time': 'The end time must be after the start time.',
+	'events.end_time_required_for_external_events': 'An end time is required for external events.',
+	'events.start_time_must_be_in_future': 'The start time must be in the future.',
+	'events.already_completed_or_canceled': 'This event has already completed or been canceled.',
 } as const;
 
 export type ErrorI18nCatalog = typeof ERROR_I18N_MESSAGES;
