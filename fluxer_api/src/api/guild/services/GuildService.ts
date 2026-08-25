@@ -47,6 +47,8 @@ import {GuildMemberService} from './GuildMemberService';
 import {GuildModerationService} from './GuildModerationService';
 import {GuildRoleService} from './GuildRoleService';
 import {GuildSearchService} from './GuildSearchService';
+import type {IGuildScheduledEventRepository} from '../../guild_scheduled_event/IGuildScheduledEventRepository';
+import {GuildScheduledEventService} from '../../guild_scheduled_event/GuildScheduledEventService';
 
 interface AuditLogOptions {
 	channel_id?: string;
@@ -114,6 +116,7 @@ export class GuildService {
 	public readonly content: GuildContentService;
 	public readonly channels: GuildChannelService;
 	public readonly search: GuildSearchService;
+	public readonly scheduledEvents: GuildScheduledEventService;
 	private readonly guildRepository: IGuildRepositoryAggregate;
 	private readonly userCacheService: UserCacheService;
 	private readonly webhookRepository: IWebhookRepository;
@@ -135,6 +138,7 @@ export class GuildService {
 		guildAuditLogService: GuildAuditLogService,
 		limitConfigService: LimitConfigService,
 		ipInfoService: IpInfoService,
+		guildScheduledEventRepository: IGuildScheduledEventRepository,
 	) {
 		const {
 			cache: cacheService,
@@ -218,6 +222,12 @@ export class GuildService {
 			gatewayService,
 			userRepository,
 			workerService,
+		);
+		this.scheduledEvents = new GuildScheduledEventService(
+			guildScheduledEventRepository,
+			snowflakeService,
+			gatewayService,
+			guildAuditLogService,
 		);
 	}
 

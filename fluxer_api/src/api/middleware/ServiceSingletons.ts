@@ -67,6 +67,7 @@ import {VirusScanService} from '../infrastructure/VirusScanService';
 import {GatewayRolloutConfigPublisher} from '../instance/GatewayRolloutConfigPublisher';
 import {InstanceConfigRepository} from '../instance/InstanceConfigRepository';
 import {InviteRepository} from '../invite/InviteRepository';
+import {GuildScheduledEventRepository} from '../guild_scheduled_event/GuildScheduledEventRepository';
 import {Logger} from '../Logger';
 import {LimitConfigService} from '../limits/LimitConfigService';
 import {BotAuthService} from '../oauth/BotAuthService';
@@ -103,6 +104,7 @@ export const getUserRepository = singleton(() => new UserRepository(getKVClient(
 export const getGuildRepository = singleton(() => new GuildRepository());
 export const getChannelRepository = singleton(() => new ChannelRepository());
 export const getInviteRepository = singleton(() => new InviteRepository());
+export const getGuildScheduledEventRepository = singleton(() => new GuildScheduledEventRepository());
 export const getWebhookRepository = singleton(() => new WebhookRepository());
 export const getReadStateRepository = singleton(() => new ReadStateRepository());
 export const getFavoriteMemeRepository = singleton(() => new FavoriteMemeRepository());

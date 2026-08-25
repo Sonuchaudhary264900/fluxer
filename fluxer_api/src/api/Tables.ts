@@ -185,6 +185,16 @@ import {
 	type GuildRow,
 	type GuildStickerRow,
 } from './database/types/GuildTypes';
+import {
+	GUILD_SCHEDULED_EVENT_COLUMNS,
+	GUILD_SCHEDULED_EVENT_USER_COLUMNS,
+	GUILD_SCHEDULED_EVENTS_BY_GUILD_COLUMNS,
+	GUILD_SCHEDULED_EVENTS_BY_USER_COLUMNS,
+	type GuildScheduledEventRow,
+	type GuildScheduledEventsByGuildRow,
+	type GuildScheduledEventsByUserRow,
+	type GuildScheduledEventUserRow,
+} from './database/types/GuildScheduledEventTypes';
 import {INSTANCE_CONFIGURATION_COLUMNS, type InstanceConfigurationRow} from './database/types/InstanceConfigTypes';
 import {
 	JOB_ACTIVE_COLUMNS,
@@ -557,6 +567,26 @@ export const GuildMembers = defineTable<GuildMemberRow, 'guild_id' | 'user_id'>(
 	name: 'guild_members',
 	columns: GUILD_MEMBER_COLUMNS,
 	primaryKey: ['guild_id', 'user_id'],
+});
+export const GuildScheduledEvents = defineTable<GuildScheduledEventRow, 'event_id' | 'soft_deleted'>({
+	name: 'guild_scheduled_events',
+	columns: GUILD_SCHEDULED_EVENT_COLUMNS,
+	primaryKey: ['event_id', 'soft_deleted'],
+});
+export const GuildScheduledEventsByGuild = defineTable<GuildScheduledEventsByGuildRow, 'guild_id' | 'event_id'>({
+	name: 'guild_scheduled_events_by_guild_id',
+	columns: GUILD_SCHEDULED_EVENTS_BY_GUILD_COLUMNS,
+	primaryKey: ['guild_id', 'event_id'],
+});
+export const GuildScheduledEventUsers = defineTable<GuildScheduledEventUserRow, 'event_id' | 'user_id'>({
+	name: 'guild_scheduled_event_users',
+	columns: GUILD_SCHEDULED_EVENT_USER_COLUMNS,
+	primaryKey: ['event_id', 'user_id'],
+});
+export const GuildScheduledEventsByUser = defineTable<GuildScheduledEventsByUserRow, 'user_id' | 'event_id'>({
+	name: 'guild_scheduled_events_by_user_id',
+	columns: GUILD_SCHEDULED_EVENTS_BY_USER_COLUMNS,
+	primaryKey: ['user_id', 'event_id'],
 });
 export const Channels = defineTable<ChannelRow, 'channel_id' | 'soft_deleted'>({
 	name: 'channels',

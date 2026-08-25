@@ -11,6 +11,7 @@ import type {GuildAuditLogService} from '../guild/GuildAuditLogService';
 import type {IGuildRepositoryAggregate} from '../guild/repositories/IGuildRepositoryAggregate';
 import type {ExpressionAssetPurger} from '../guild/services/content/ExpressionAssetPurger';
 import {GuildService} from '../guild/services/GuildService';
+import type {IGuildScheduledEventRepository} from '../guild_scheduled_event/IGuildScheduledEventRepository';
 import type {AvatarService} from '../infrastructure/AvatarService';
 import type {IPurgeQueue} from '../infrastructure/BunnyPurgeQueue';
 import type {EmbedService} from '../infrastructure/EmbedService';
@@ -56,6 +57,7 @@ interface GuildStackServiceFactoryDependencies {
 	liveKitService: ILiveKitService;
 	voiceAvailabilityService: VoiceAvailabilityService | null;
 	ipInfoService: IpInfoService;
+	guildScheduledEventRepository: IGuildScheduledEventRepository;
 }
 
 interface GuildStackServices {
@@ -112,6 +114,7 @@ export function createGuildStackServices(dependencies: GuildStackServiceFactoryD
 		dependencies.guildAuditLogService,
 		dependencies.limitConfigService,
 		dependencies.ipInfoService,
+		dependencies.guildScheduledEventRepository,
 	);
 	const inviteService = new InviteService(
 		dependencies.apiContext,

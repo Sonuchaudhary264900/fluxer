@@ -15,6 +15,7 @@ import {GatewayController} from '../gateway/GatewayController';
 import {GeolocationController} from '../geolocation/GeolocationController';
 import {GifController} from '../gif/GifController';
 import {GuildController} from '../guild/GuildController';
+import {GuildScheduledEventController} from '../guild_scheduled_event/GuildScheduledEventController';
 import {InstanceController} from '../instance/InstanceController';
 import {InviteController} from '../invite/InviteController';
 import {Logger} from '../Logger';
@@ -58,6 +59,7 @@ export function registerControllers(routes: HonoApp, config: APIConfig): void {
 	ReadStateController(routes);
 	ReportController(routes);
 	GuildController(routes);
+	GuildScheduledEventController(routes);
 	SearchController(routes);
 	GifController(routes);
 	ThemeController(routes);

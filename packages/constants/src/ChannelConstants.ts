@@ -177,6 +177,8 @@ export const Permissions = {
 	BYPASS_SLOWMODE: 1n << 52n,
 	UPDATE_RTC_REGION: 1n << 53n,
 	VIEW_CHANNEL_MEMBERS: 1n << 54n,
+	CREATE_EVENTS: 1n << 55n,
+	MANAGE_EVENTS: 1n << 56n,
 } as const;
 export const PermissionsDescriptions: Record<keyof typeof Permissions, string> = {
 	CREATE_INSTANT_INVITE: 'Allows creation of instant invites',
@@ -216,6 +218,8 @@ export const PermissionsDescriptions: Record<keyof typeof Permissions, string> =
 	BYPASS_SLOWMODE: 'Allows bypassing slowmode',
 	UPDATE_RTC_REGION: 'Allows updating the voice region',
 	VIEW_CHANNEL_MEMBERS: 'Allows viewing the member list in a channel',
+	CREATE_EVENTS: 'Allows creating scheduled events',
+	MANAGE_EVENTS: 'Allows editing and deleting scheduled events created by others',
 };
 export const ALL_PERMISSIONS = Object.values(Permissions).reduce((acc, p) => acc | p, 0n);
 export const DEFAULT_PERMISSIONS =

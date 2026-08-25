@@ -130,6 +130,7 @@ import {
 	getGuildAuditLogService,
 	getGuildDiscoveryRepository,
 	getGuildRepository,
+	getGuildScheduledEventRepository,
 	getInstanceConfigRepository,
 	getInviteRepository,
 	getKVAccountDeletionQueue,
@@ -354,6 +355,7 @@ export const ServiceMiddleware = createMiddleware<HonoEnv>(async (ctx, next) => 
 	const guildRepository = getGuildRepository();
 	const channelRepository = getChannelRepository();
 	const inviteRepository = getInviteRepository();
+	const guildScheduledEventRepository = getGuildScheduledEventRepository();
 	const webhookRepository = getWebhookRepository();
 	const connectionRepository = getConnectionRepository();
 	const packRepository = getPackRepository();
@@ -411,6 +413,7 @@ export const ServiceMiddleware = createMiddleware<HonoEnv>(async (ctx, next) => 
 		liveKitService,
 		voiceAvailabilityService,
 		ipInfoService,
+		guildScheduledEventRepository,
 	});
 	const blueskyOAuthService = await resolveBlueskyOAuthService(getInstanceConfigRepository());
 	const connectionService = new ConnectionService(connectionRepository, gatewayService, blueskyOAuthService);

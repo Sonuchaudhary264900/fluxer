@@ -65,6 +65,13 @@ export const GuildIdRoleIdParam = z.object({
 
 export type GuildIdRoleIdParam = z.infer<typeof GuildIdRoleIdParam>;
 
+export const GuildIdEventIdParam = z.object({
+	guild_id: SnowflakeType.describe('The ID of the guild'),
+	event_id: SnowflakeType.describe('The ID of the scheduled event'),
+});
+
+export type GuildIdEventIdParam = z.infer<typeof GuildIdEventIdParam>;
+
 export const GuildIdUserIdRoleIdParam = z.object({
 	guild_id: SnowflakeType.describe('The ID of the guild'),
 	user_id: SnowflakeType.describe('The ID of the user'),

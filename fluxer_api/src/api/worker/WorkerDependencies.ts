@@ -82,6 +82,7 @@ import {
 	getGuildAuditLogService,
 	getGuildRepository,
 	getInstanceConfigRepository,
+	getGuildScheduledEventRepository,
 	getInviteRepository,
 	getKVAccountDeletionQueue,
 	getKVActivityTracker,
@@ -255,6 +256,7 @@ export async function initializeWorkerDependencies(snowflakeService: ISnowflakeS
 		Logger.info({reconciliationEnabled: voiceReconciliationEnabled}, 'Voice services initialized');
 	}
 	const inviteRepository = getInviteRepository();
+	const guildScheduledEventRepository = getGuildScheduledEventRepository();
 	const webhookRepository = getWebhookRepository();
 	const ipInfoService = getIpInfoService();
 	const contactChangeLogService = getContactChangeLogService();
@@ -285,6 +287,7 @@ export async function initializeWorkerDependencies(snowflakeService: ISnowflakeS
 		liveKitService,
 		voiceAvailabilityService,
 		ipInfoService,
+		guildScheduledEventRepository,
 	});
 	const billingRepository = new BillingRepository(snowflakeService, kvClient);
 	let stripe: Stripe | null = null;

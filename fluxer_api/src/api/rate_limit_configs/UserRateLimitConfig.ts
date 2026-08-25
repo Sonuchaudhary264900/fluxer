@@ -8,6 +8,10 @@ export const UserRateLimitConfigs = {
 		bucket: 'user:read::user_id',
 		config: {limit: 100, windowMs: ms('10 seconds')},
 	} as RouteRateLimitConfig,
+	USER_SCHEDULED_EVENTS_LIST: {
+		bucket: 'user:scheduled_events:list',
+		config: {limit: 30, windowMs: ms('10 seconds')},
+	} as RouteRateLimitConfig,
 	USER_GET_PROFILE: {
 		bucket: 'user:profile::target_id',
 		config: {limit: 100, windowMs: ms('10 seconds')},
